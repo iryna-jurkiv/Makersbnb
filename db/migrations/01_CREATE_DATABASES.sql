@@ -1,2 +1,2 @@
-CREATE DATABASE MakersBnB;
-CREATE DATABASE MakersBnB_test;
+CREATE DATABASE makersbnb;
+CREATE DATABASE makersbnb_test;
