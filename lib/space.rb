@@ -39,7 +39,8 @@ def self.all
       description: space['description'],
       price: space['price'],
       available_from: space['available_from'],
-      available_to: space['available_to'])
+      available_to: space['available_to'],
+      user_id: space['user_id'])
     end
   end
 end
