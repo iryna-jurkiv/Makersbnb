@@ -15,14 +15,14 @@
     <li>Available to : <%= @selected_space.available_to %></li>
 </ul>
 
-<form action="/space/:id" method="post">
-  <label for="start date">
+<form action="/bookings/confirmation" method="post">
+  <label for="start_date">
     Start Date
-  <input type="date" name="start date" />
+  <input type="date" name="start_date" />
 </label>
-<label for="description">
+<label for="end_date">
   End Date
-  <input type="date" name="end date" />
+  <input type="date" name="end_date" />
 </label>
   <input type="submit" value="Request" />
 </form>
