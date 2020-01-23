@@ -2,8 +2,8 @@ require 'pg'
 
 def setup_test_database
 
-connection = PG.connect(dbname: 'chitter_test')
+connection = PG.connect(dbname: 'MakersBnB_test')
 
-connection.exec("TRUNCATE peep, users;")
+connection.exec("TRUNCATE users, spaces;")
 
 end
