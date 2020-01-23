@@ -1,0 +1,2 @@
+CREATE DATABASE MakersBnB;
+CREATE DATABASE MakersBnB_test;
