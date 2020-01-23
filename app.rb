@@ -48,5 +48,12 @@ enable :sessions
     redirect '/space'
   end
 
+  post '/space/request' do
+    renter = session[:user_id]
+    space_id = params[:id]
+    Booking.create(start_date: params[:start_date], end_date: params[:end_date], renter, space_id)
+
+  end
+
   run! if app_file == $0
 end
