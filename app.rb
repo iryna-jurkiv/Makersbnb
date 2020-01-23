@@ -24,7 +24,7 @@ enable :sessions
   end
 
   get '/space' do
-    @user = User.find(session[:user_id])
+    @user = User.find(id: session[:user_id])
     @spaces = Space.all
     erb :"space/index"
   end
@@ -37,6 +37,7 @@ enable :sessions
       end
     end
     erb :"space/select"
+  end
 
   get '/users/new' do
     erb :"users/new"
@@ -47,6 +48,7 @@ enable :sessions
     session[:user_id] = user.id
     redirect '/space'
   end
+
 
   run! if app_file == $0
 end
