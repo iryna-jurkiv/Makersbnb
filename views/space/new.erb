@@ -1,17 +1,23 @@
 <form action="/space" method="post">
+  <label for="name">
+    Name
   <input type="text" name="name" />
+</label>
+<label for="description">
+  Description
   <input type="text" name="description" />
+</label>
+<label for="price">
+  Price
   <input type="price" name="price" />
+</label>
+<label for="available_from">
+  Date From
   <input type="date" name="available_from" />
-  <input type="date" name="available_until" />
-  <input type="submit" value="Submit" />
-</form>
-
-
-<form action="/peeps" method="post">
-  <label for="message">
-    Message(Peep):
-  <input type="text" name="message" />
-  </label>
-  <input type="submit" value="Submit" />
+</label>
+<label for="available_to">
+  Date To:
+  <input type="date" name="available_to" />
+</label>
+  <input type="submit" value="Add" />
 </form>

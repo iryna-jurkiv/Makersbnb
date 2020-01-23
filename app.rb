@@ -21,8 +21,18 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/space' do
+    @spaces = Space.all
+    erb :"space/index"
+  end
+
+  get '/space/:id' do
     spaces = Space.all
-    erb :"space"
+    spaces.each do |space|
+      if space.id == params[:id]
+        @selected_space = space
+      end
+    end
+    erb :"space/select"
   end
 
   run! if app_file == $0
