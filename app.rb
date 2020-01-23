@@ -10,7 +10,7 @@ class MakersBnB < Sinatra::Base
 enable :sessions
 
   get '/' do
-    'Hello World!'
+    redirect '/space'
   end
 
   get '/space/new' do
@@ -50,6 +50,22 @@ enable :sessions
     user = User.create(name: params[:name], email: params[:email], password: params[:password])
     session[:user_id] = user.id
     redirect '/space'
+  end
+  
+  get '/sessions/new' do
+    erb :"sessions/new"
+  end
+
+  post '/sessions' do
+    user = User.authenticate(email: params[:email], password: params[:password])
+    session[:user_id] = user.id
+    redirect '/space'
+  end
+
+  post '/space/request' do
+    renter = session[:user_id]
+    space_id = params[:id]
+    Booking.create(start_date: params[:start_date], end_date: params[:end_date], renter: renter, space_id: space_id)
   end
 
   post '/bookings/confirmation' do
