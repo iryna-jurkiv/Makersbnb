@@ -12,9 +12,10 @@
   <% end %>
 <ul>
   <% @spaces.each do |space| %>
-  <div id="space">
-    <li><%= space.id %></li>
-    <li><%= space.name %></li>
-    </div>
-  <% end %>
+    <li>
+      <a href="/space/<%= space.id %>" target="_blank">
+      <%= space.name %>
+    </a>
+  </li>
+<% end %>
 </ul>

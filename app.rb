@@ -25,8 +25,18 @@ enable :sessions
 
   get '/space' do
     @user = User.find(session[:user_id])
+    @spaces = Space.all
     erb :"space/index"
   end
+
+  get '/space/:id' do
+    spaces = Space.all
+    spaces.each do |space|
+      if space.id == params[:id]
+        @selected_space = space
+      end
+    end
+    erb :"space/select"
 
   get '/users/new' do
     erb :"users/new"
