@@ -1,8 +1,15 @@
 
 To run the app:
+-bundle install
+-rake setup
+-rack up
+
+
 ### High Level Description of the Spec
 Create a web application that allows users to list spaces they have available
 and hire spaces for the night.
+
+
 ### User specifications
 - 1)Any signed-up user can list a new space.
 - 4)Users can list multiple spaces.
@@ -18,21 +25,20 @@ and hire spaces for the night.
   As a user with empty spaces
   So that I can earn extra income from an empty space
   I would like to list the space on MakersBnB
-  -->Person A
-```
+  -->Person A and B
 ```
 - 2)Users should be able to name their space, provide a short description of the space, and a price per night.
   As a user with empty spaces
   So that my listings are informative and attractive to other users
   I would like add a name, a description and a price per night
-  -->Person A
+  -->Person A and B
 ```
 ```
 - 3)Users should be able to offer a range of dates where their space is available.
   As a user with empty spaces
   So that my spaces will avoid double bookings
   I would like declare date range when my spaces are available for bookings
-  -->Person B & C
+  -->Person B and C
 ```
 ```
 - 5)Any signed-up user can request to hire any space for one night, and this should be approved by the user that owns that space.
