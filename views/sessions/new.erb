@@ -5,14 +5,16 @@
     <title></title>
   </head>
   <body>
-    <h1>
-     <%= flash[:notice] %>
-    </h1>
+
+    <h2>
+      <%= flash[:notice] %>
+    </h2>
+
     <h2>Login Form</h2>
     <form action="/sessions" method="post">
       Username: <input type="email" name="email" placeholder="email" /><br/>
       Password: <input type="password" name="password" placeholder="password" /><br/>
-      <input type="submit" value="Submit">
+      <input type="submit" value="Sign in">
     </form>
     <h3> Don't have an account? <a href =/users/new> Sign up </a></h3>
   </body>

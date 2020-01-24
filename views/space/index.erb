@@ -77,7 +77,15 @@ body, html {
 </div>
   <% if @user %>
   <h1> Welcome, <%= @user.name %> </h1>
+
+  <form action="/sessions/destroy" method="post">
+    <input type="submit" value="Sign out" />
+  </form>
+
   <% end %>
+  <h1>
+    <%= flash[:notice] %>
+  </h1>
 <div class="hero-image">
   <div class="hero-text">
     <h1 style="font-size:50px">Welcome to MakersBnB</h1>

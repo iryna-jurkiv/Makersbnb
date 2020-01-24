@@ -40,7 +40,7 @@ class MakersBnB < Sinatra::Base
       session[:user_id] = user.id
       redirect '/space'
     else
-      flash[:notice] = 'Incorrect email or password'
+      flash[:notice] ='Please check your email or password.'
       redirect '/sessions/new'
     end
   end
@@ -48,7 +48,7 @@ class MakersBnB < Sinatra::Base
   post '/sessions/destroy' do
     session.clear
     flash[:notice] = 'You have signed out.'
-    redirect('/')
+    redirect('/space')
   end
 
   get '/space/new' do
