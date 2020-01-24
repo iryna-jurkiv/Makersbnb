@@ -31,7 +31,6 @@ and hire spaces for the night.
   As a user with empty spaces
   So that my listings are informative and attractive to other users
   I would like add a name, a description and a price per night
-  -->Person A and B
 ```
 
 ```
@@ -39,7 +38,6 @@ and hire spaces for the night.
   As a user with empty spaces
   So that my spaces will avoid double bookings
   I would like declare date range when my spaces are available for bookings
-  -->Person B and C
 ```
 
 ```

@@ -38,4 +38,27 @@ class Booking
         booking_status: result[0]['booking_status']
       )
   end
+
+  def self.where(user_id:)
+    result = DatabaseConnection.query("SELECT space.name, space.price, bookings.start_date, bookings.end_date, users.name
+                                      FROM bookings JOIN space on bookings.space_id = space.id
+                                      JOIN users on bookings.renter = users.id
+                                      WHERE space.user_id = #{user_id} ;")
+
+  end
+
+  # def self.approve(booking_id,space_id)
+  #   result = DatabaseConnection.query(UPDATE bookings SET booking_status = 'confirmed' WHERE id = '#{booking_id}'
+  #     RETURNING id, user_id, space_id, booking_status;")
+  #     DatabaseConnection.query(UPDATE space SET booking = 'true' WHERE id = '#{space_id}';")
+  #     Booking.new(
+  #     space_id: result[0]['space_id'],
+  #     id: result[0]['id'],
+  #     owner: result[0]['owner'],
+  #     renter: result[0]['renter'],
+  #     start_date: result[0]['start_date'],
+  #     end_date: result[0]['end_date'],
+  #     booking_status: result[0]['booking_status']
+  #     )
+  #   end
 end

@@ -1,0 +1,11 @@
+<h1> Your received requests </h1> <br>
+<% @bookings.each do |space| %>
+     Space Name: <%= space['name'] %> <br>
+     Space Price <%= space['price'] %> <br>
+     Space Start Date <%= space['start_date'] %><br>
+     Space End Date<%= space['end_date'] %><br>
+     <form action="/space">
+       <input type="submit" value="Accept" />
+       <input type="submit" value="Decline" />
+     </form>
+<% end %>

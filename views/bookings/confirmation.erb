@@ -1,1 +1,17 @@
-<h1> Your request has been sent for approval </h1>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2>Thank you for your request <%= @renter.name %> for <%= @space.name %><br> Below are your booking details: </h2>
+    <ul>
+        <li>Name : <%= @space.name %></li>
+        <li>Description :<%= @space.description %></li>
+        <li>Price :£<%= @space.price %></li>
+        <li>Booked from : <%= @start %></li>
+        <li>Booked until : <%= @end %></li>
+    </ul>
+    <h3>Your request will now be sent to your host for approval. We will notify you once they approve </h3>
+    <a href =/space> Back to homepage </a>

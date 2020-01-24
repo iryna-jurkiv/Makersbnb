@@ -69,7 +69,8 @@ body, html {
 <body>
 <div class="c">
   <ul id="menu">
-    <li><a href="/space/new"> List a space </a></li>
+    <li><a href="/bookings"> Your requests </a></li>
+    <li><a href="/users/new"> List a space </a></li>
     <li><a href="/users/new"> Sign up </a></li>
     <li><a href="/sessions/new">Log in </a></li>
   </ul>
@@ -90,3 +91,6 @@ body, html {
     </a>
 <% end %>
 </ul>
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Sign out" />
+</form>

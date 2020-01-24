@@ -7,10 +7,48 @@ require_relative './database_connection_setup'
 
 
 class MakersBnB < Sinatra::Base
-enable :sessions
+  register Sinatra::Flash
+  enable :sessions, :method_override
 
   get '/' do
     redirect '/space'
+  end
+
+  get '/space' do
+    @user = User.find(id: session[:user_id])
+    @spaces = Space.all
+    erb :"space/index"
+  end
+
+  get '/users/new' do
+    erb :"users/new"
+  end
+
+  post '/users' do
+    user = User.create(name: params[:name], email: params[:email], password: params[:password])
+    session[:user_id] = user.id
+    redirect '/space'
+  end
+
+  get '/sessions/new' do
+    erb :"sessions/new"
+  end
+
+  post '/sessions' do
+    user = User.authenticate(email: params[:email], password: params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect '/space'
+    else
+      flash[:notice] = 'Incorrect email or password'
+      redirect '/sessions/new'
+    end
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You have signed out.'
+    redirect('/')
   end
 
   get '/space/new' do
@@ -25,11 +63,6 @@ enable :sessions
     redirect '/space'
   end
 
-  get '/space' do
-    @user = User.find(id: session[:user_id])
-    @spaces = Space.all
-    erb :"space/index"
-  end
 
   get '/space/:id' do
     session[:space_id] = params[:id]
@@ -42,42 +75,31 @@ enable :sessions
     erb :"space/select"
   end
 
-  get '/users/new' do
-    erb :"users/new"
-  end
-
-  post '/users' do
-    user = User.create(name: params[:name], email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect '/space'
-  end
-  
-  get '/sessions/new' do
-    erb :"sessions/new"
-  end
-
-  post '/sessions' do
-    user = User.authenticate(email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect '/space'
-  end
-
-  post '/space/request' do
-    renter = session[:user_id]
-    space_id = params[:id]
-    Booking.create(start_date: params[:start_date], end_date: params[:end_date], renter: renter, space_id: space_id)
-  end
-
   post '/bookings/confirmation' do
     renter = session[:user_id]
     space_id = session[:space_id]
+    session[:renter_full] = User.find(id: renter)
+    session[:space_full] = Space.find(id: space_id)
+    session[:start_date] = params[:start_date]
+    session[:end_date] = params[:end_date]
     Booking.create(start_date: params[:start_date], end_date: params[:end_date], renter: renter,space_id: space_id)
     redirect '/bookings/confirmation'
   end
 
   get '/bookings/confirmation' do
+    @renter = session[:renter_full]
+    @space = session[:space_full]
+    @start = session[:start_date]
+    @end = session[:end_date]
     erb :"bookings/confirmation"
   end
+
+  get '/bookings' do
+    user_id = session[:user_id]
+    @bookings = Booking.where(user_id: user_id)
+    erb :"bookings/index"
+  end
+
 
   run! if app_file == $0
 end
