@@ -1,21 +1,98 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://codetheweb.blog/assets/img/posts/full-image-hero/image.jpg');
+      height: 100%;
+      display: block;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .log_in form {
+        width: 220px;
+        height:140px;
+        background-color: #ffe5e5;
+        padding: 10px 0px 10px 4px;
+        border-radius: 15px;
+        color: gray;
+        font-size: 11px;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 6%;
+      }
+
+      .log_in input {
+        width: 195px;
+        height: 20px;
+        margin: 3px 0px 0px 10px;
+        border: 0px;
+        font-weight: bold;
+        color: gray;
+      }
+
+      .log_in h2 {
+        text-align: center;
+        position: absolute;
+        top: 5%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+        .log_in placeholder {
+          rgb(211,211,211);
+        }
+        .log_in form label {
+          margin: 5px 0px 0px 15px;
+        }
+
+        a {
+          outline: none;
+          background: #ffe5e5;
+          margin: 5px;
+          font-weight: bold;
+        }
+
+        .submit_button {
+          width: 149px;
+          height: 42px;
+          border-radius: 10px;
+          margin: 15px auto 0px auto;
+          text-align: center;
+          cursor: pointer;
+          clear: both;
+          color: gray;
+        }
+
+      </style>
   </head>
   <body>
 
     <h2>
       <%= flash[:notice] %>
     </h2>
-
-    <h2>Login Form</h2>
-    <form action="/sessions" method="post">
-      Username: <input type="email" name="email" placeholder="email" /><br/>
-      Password: <input type="password" name="password" placeholder="password" /><br/>
-      <input type="submit" value="Sign in">
-    </form>
-    <h3> Don't have an account? <a href =/users/new> Sign up </a></h3>
+    <div class="container">
+      <div class="log_in">
+        <h2>Login Form</h2>
+          <form action="/sessions" method="post">
+            Username: <input type="email" name="email" placeholder="email" /><br/>
+            Password: <input type="password" name="password" placeholder="password" /><br/>
+            <input type="submit" value="Sign in"><br/>
+            <br>
+            Don't have an account? <a href =/users/new> Sign up </a>
+          </form>
+      </div>
+    </div>
   </body>
 </html>
