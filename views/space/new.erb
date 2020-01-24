@@ -1,23 +1,121 @@
-<form action="/space" method="post">
-  <label for="name">
-    Name
-  <input type="text" name="name" />
-</label>
-<label for="description">
-  Description
-  <input type="text" name="description" />
-</label>
-<label for="price">
-  Price per night(£)
-  <input type="price" name="price" />
-</label>
-<label for="available_from">
-  Date From
-  <input type="date" name="available_from" />
-</label>
-<label for="available_to">
-  Date To:
-  <input type="date" name="available_to" />
-</label>
-  <input type="submit" value="Add" />
-</form>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://codetheweb.blog/assets/img/posts/full-image-hero/image.jpg');
+      height: 100%;
+      display: block;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .new_space_form form {
+        width: 280px;
+        height:250px;
+        background-color: #ffe5e5;
+        padding: 10px 0px 10px 4px;
+        border-radius: 15px;
+        color: gray;
+        font-size: 11px;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 6%;
+      }
+
+      .new_space_form input {
+        width: 195px;
+        height: 20px;
+        margin: 3px 0px 0px 10px;
+        border: 0px;
+        font-weight: bold;
+        color: gray;
+      }
+
+      .new_space_form h2 {
+        text-align: center;
+        position: absolute;
+        top: 5%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .new_space_form h3 {
+        text-align: center;
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+        .new_space_form placeholder {
+          rgb(211,211,211);
+        }
+        . new_space_form form label {
+          margin: 5px 0px 0px 15px;
+        }
+
+        a {
+          outline: none;
+          margin: 5px;
+          font-weight: bold;
+
+        }
+
+        .submit_button {
+          width: 149px;
+          height: 42px;
+          border-radius: 10px;
+          margin: 15px auto 0px auto;
+          text-align: center;
+          cursor: pointer;
+          clear: both;
+          color: gray;
+        }
+
+  </style>
+</head>
+<body>
+<a href =/space> Back to homepage </a>
+
+<div class="new_space_form">
+
+  <form action="/space" method="post">
+    Name:
+    <br>
+    <input type="text" name="name" />
+    <br>
+    Description:
+    <br>
+    <input type="text" name="description" />
+    <br>
+    Price per night(£):
+    <br>
+    <input type="price" name="price" />
+    <br>
+    Date From:
+    <br>
+    <input type="date" name="available_from" />
+    <br>
+    Date To:
+    <br>
+    <input type="date" name="available_to" />
+    <br>
+    <input type="submit" value="Add" />
+  </form>
+    <br>
+
+</div>
+</body>
+</html>
