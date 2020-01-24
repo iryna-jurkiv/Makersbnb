@@ -1,11 +1,15 @@
 <h1> Your received requests </h1> <br>
-<% @bookings.each do |space| %>
-     Space Name: <%= space['name'] %> <br>
-     Space Price <%= space['price'] %> <br>
-     Space Start Date <%= space['start_date'] %><br>
-     Space End Date<%= space['end_date'] %><br>
-     <form action="/space">
+<% @bookings.each do |booking| %>
+     Property Name: <%= booking['name'] %> <br>
+     Property Price: <%= booking['price'] %> <br>
+     Booking Start Date: <%= booking['start_date'] %><br>
+     Booking End Date: <%= booking['end_date'] %><br>
+     Booking Status: <%= booking['booking_status'] %><br>
+     <form action="/bookings/accept/<%= booking['id'] %>" method="post">
+       <input type="hidden" name="_method" value="PATCH" />
        <input type="submit" value="Accept" />
-       <input type="submit" value="Decline" />
-     </form>
+    </form>
+    <form action="/bookings/decline/<%= booking['id'] %>" method="post">
+      <input type="hidden" name="_method" value="DELETE" />
+      <input type="submit" value="Decline" />
 <% end %>

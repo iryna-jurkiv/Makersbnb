@@ -65,6 +65,7 @@ class MakersBnB < Sinatra::Base
 
 
   get '/space/:id' do
+    @user = User.find(id: session[:user_id])
     session[:space_id] = params[:id]
     spaces = Space.all
     spaces.each do |space|
@@ -100,6 +101,15 @@ class MakersBnB < Sinatra::Base
     erb :"bookings/index"
   end
 
+  delete '/bookings/decline/:id' do
+    Booking.delete(booking_id: params[:id])
+    redirect '/bookings'
+  end
+
+  patch '/bookings/accept/:id' do
+    Booking.update(booking_id: params[:id])
+    redirect '/bookings'
+  end
 
   run! if app_file == $0
 end

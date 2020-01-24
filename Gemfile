@@ -11,4 +11,5 @@ group :test do
   gem 'capybara'
   gem 'rspec'
   gem 'rubocop', '0.71.0'
+  gem 'launchy'
 end

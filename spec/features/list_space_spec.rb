@@ -1,5 +1,12 @@
 feature 'List space' do
   scenario 'A user list space on MakersBnB' do
+    User.create(name: 'Test', email: 'test@example.com', password: 'password123')
+
+    visit 'sessions/new'
+    fill_in(:email, with: 'test@example.com')
+    fill_in(:password, with: 'password123')
+    click_button('Sign in')
+
     visit '/space/new'
     fill_in('name',with: 'Test Space')
     fill_in('description',with: 'Test Description')
